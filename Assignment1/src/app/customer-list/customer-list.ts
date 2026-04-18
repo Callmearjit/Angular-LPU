@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
-import {Customer} from '../customer'
+import { CustomerDetails } from '../customer-details/customer-details';
+import { CommonModule } from '@angular/common';
+import { Customer } from '../customer';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-customer-list',
-  imports: [],
+   standalone: true,
+    imports: [CommonModule, CustomerDetails, FormsModule],
   templateUrl: './customer-list.html',
   styleUrl: './customer-list.css',
 })
@@ -31,7 +36,9 @@ export class CustomerList {
   }
 
   get pagedCustomer(){
-    return this.customers.length
+    const start = (this.currentPage - 1) * this.itemsOnEachPage;
+    const end = start + this.itemsOnEachPage;
+    return this.searchCustomer.slice(start, end);
   }
 
   totalPages(){

@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CustomerList } from './customer-list/customer-list';
 
 @Component({
- 
+  selector: 'app-root',
   standalone: true,
-  imports: [CustomerList]
+  imports: [CustomerList],
+  templateUrl: './app.html'   
 })
 export class App {
   protected readonly title = signal('Assignment1');
