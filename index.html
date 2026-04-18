@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Square Calculator</title>
+</head>
+<body>
+
+    <input type="number" id="num" placeholder="Enter number">
+    <button onclick="calculate()">Calculate</button>
+
+    <h2 id="result"></h2>
+
+    <script type="module">
+        import { sqr } from './index.js';
+
+        window.calculate = function () {
+            let value = document.getElementById("num").value;
+            let result = sqr(Number(value));
+            document.getElementById("result").innerText = "Square: " + result;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<h1>My first Angular App</h1>
+<h2>{{title}}</h2>
+<div class="user-details">
+  <p>Name: {{user.name}}</p>
+  <p>Add: {{user.address}}</p>
+  <p>Age: {{user.age}}</p>
+  <p>phone: {{user.phones}}</p>
+
+</div>
+@for(us of users ; track us.name){
+  <div class="user-details"  [class.bg-blue]="us.gender === 'male'" [class.bg-pink]="us.gender === 'female'">
+    <p>Name: {{us.name}}</p>
+    <p>Age: {{us.age}}</p>
+    <p>Add: {{us.address}}</p>
+    <input type="text" [disabled]="us.edit">
+    <img [src]="us.pic" alt="">
+    <img src="{{us.pic}}" alt="">
+
+    @if(us.gender === 'male'){
+      <div>Eligible for posting faraway</div>
+    }
+    @else{
+      <div>not Eligible for posting faraway</div>
+    }
+
+  </div>
+}
+<router-outlet />

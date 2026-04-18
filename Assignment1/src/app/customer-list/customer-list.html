@@ -1,0 +1,15 @@
+<p>customer-list works!</p>
+<h2> customer list </h2>
+<input type="text" placeholder="Name search" [(ngModel)="searchText"]>
+<div *ngFor="let customer of paginatedCustomers">
+    <app-customer-details [customer]="customer"></app-customer-details>
+
+</div>
+
+<br>
+
+<button (click)="previousPage()" [disabled]="currentPage == 1"> previous </button>
+
+<button (click)="nextPage()" [disabled]="currentPage == totalPages">Next</button>
+
+<p> Page {{currentpage}} of {{totalPages()}}</p>
